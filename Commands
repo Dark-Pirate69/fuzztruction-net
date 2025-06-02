@@ -1,0 +1,50 @@
+Befehle für Fuzztruction Fuzzer:
+
+//Repo clonen und in den Ordner wechseln (Nur bei ganz neuem System Install)
+
+git clone https://github.com/fuzztruction/fuzztruction-net.git && \
+    cd fuzztruction-net && \
+    git submodule update --init
+
+
+
+
+//Builden des vorgefertigtem enviroments mit allen Programmen
+
+./env/pull-prebuilt.sh
+
+
+
+
+
+//Docker Installation
+
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+
+
+//In das eval directory um die venv auszuführen
+
+cd fuzztruction-net
+cd eval
+./prepare_env.sh 
+source venv/bin/activate
+
+//Eigentliches script ausführen mit den Werten von campaign.config
+
+python3 eval.py campaign-config.yaml --use-prebuilt schedule
