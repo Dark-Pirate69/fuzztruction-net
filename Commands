@@ -48,3 +48,7 @@ source venv/bin/activate
 //Eigentliches script ausführen mit den Werten von campaign.config
 
 python3 eval.py campaign-config.yaml --use-prebuilt schedule
+
+chmod +x update-all.sh
+./update-all.sh
+

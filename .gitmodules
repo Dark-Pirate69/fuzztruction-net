@@ -5,5 +5,5 @@
 	path = consumer/aflpp-consumer
 	url = https://github.com/fuzztruction/aflpp-consumer.git
 [submodule "fuzztruction-experiments"]
-	path = fuzztruction-experiments
-	url = https://github.com/fuzztruction/fuzztruction-net-experiments.git
+        path = fuzztruction-experiments
+        url = https://github.com/Dark-Pirate69/fuzztruction-net-experiments.git
